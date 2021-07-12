@@ -4,7 +4,7 @@ const MealItemForm = () => {
     return (
         <form className= {classes.form}>
             <input></input>
-            <button>ADD</button>
+            <button> + ADD</button>
         </form>
     )
 }
