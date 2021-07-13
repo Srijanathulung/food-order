@@ -8,6 +8,7 @@ function App() {
   const [cartIsShown, setCartIsShown] = useState(false)
 
   const cartShowHandler = () => {
+    console.log('cartshowHandler funtion is called')
     setCartIsShown(true)
   }
   
@@ -18,7 +19,9 @@ function App() {
   return (
     <Fragment>
       {cartIsShown && <Cart/>}
-      <Header />
+      <Header onShowCart={() =>
+        {cartShowHandler()}}
+      />
       <main>
         <Meals/>
       </main>
