@@ -5,14 +5,12 @@ import Modal from '../UI/Card/Modal';
 import CartContext from '../../store/cart-context';
 import CartItem from './CartItem';
 
-const demoItems = [{ id: 'c1', name: 'burger', amount: 2, currency: 'Rs', price: 55.00 }]
 
-const cartItems = demoItems.map((item) => <li>{item.name}</li>)
 
 const Cart = (props) => {
     const cartCtx = useContext(CartContext);
 
-    const totalAmount =  'Rs ' + cartCtx.totalAmount.toFixed(2);
+    const totalAmount =  cartCtx.totalAmount.toFixed(2);
     const hasItems = cartCtx.items.length > 0;
 
     const cartItemRemoveHandler = id => {
@@ -31,6 +29,7 @@ const Cart = (props) => {
                     name={item.name}
                     amount={item.amount}
                     price={item.price}
+                    currency={item.currency}
                     onRemove={cartItemRemoveHandler.bind(null,item.id)}
                     onAdd={cartItemAddHandler.bind(null,item)}
                 /> 
