@@ -9,14 +9,14 @@ const DUMMY_MEALS = [
     name: 'Sushi',
     description: 'Finest fish and veggies',
     price: 22.99,
-    currency: 'Rs'
+    currency: 'NRS'
   },
   {
     id: 'm2',
     name: 'Momo',
     description: 'A Nepal specialty!',
     price: 99,
-    currency: 'Rs'
+    currency: 'NRS'
 
   },
   {
@@ -24,7 +24,7 @@ const DUMMY_MEALS = [
     name: 'Barbecue Burger',
     description: 'American, raw, meaty',
     price: 12.99,
-    currency: 'Rs'
+    currency: 'NRS'
 
   },
   {
@@ -32,7 +32,7 @@ const DUMMY_MEALS = [
     name: 'Green Bowl',
     description: 'Healthy...and green...',
     price: 18.99,
-    currency: 'Rs'
+    currency: 'NRS'
 
   },
 ];

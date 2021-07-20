@@ -19,6 +19,7 @@ const MealItems = (props) => {
             amount: amount,
            
         })
+        cartCtx.currency=props.currency
     };
 
     return (
