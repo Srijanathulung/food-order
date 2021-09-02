@@ -4,6 +4,7 @@ import classes from './Cart.module.css';
 import Modal from '../UI/Card/Modal';
 import CartContext from '../../store/cart-context';
 import CartItem from './CartItem';
+import Checkout from './Checkout';
 
 
 
@@ -45,6 +46,7 @@ const Cart = (props) => {
                 {/* <span>{cartCtx.items[0].currency}{totalAmount}</span> */}
                 <span>{cartCtx.currency} {totalAmount}</span>
             </div>
+            <Checkout/>
             <div className={classes.actions}>
                 <button
                     className={classes['button--alt']}
