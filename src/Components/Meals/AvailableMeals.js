@@ -39,7 +39,8 @@ import MealItems from './MealItems/MeaIItems';
 
 const AvailableMeals = () => {
 
-  const [meals,setMeals]=useState([])
+  const [meals, setMeals] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     const fetchMeals = async () => {
@@ -58,10 +59,18 @@ const AvailableMeals = () => {
         });
       }
       setMeals(loadedMeals);
+      setIsLoading(false);
     };
     fetchMeals();
   },[])
 
+  if (isLoading) {
+    return (
+      <section className={classes.MealsLoading}>
+        <p>LOADING...</p>
+      </section>
+    );
+  }
   // const mealsList = DUMMY_MEALS.map((meal) => <li>{meal.name}</li>);
   // const mealsList = DUMMY_MEALS.map((meal) => (
   //   <MealItems
