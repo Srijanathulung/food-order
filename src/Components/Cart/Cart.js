@@ -52,7 +52,7 @@ const Cart = (props) => {
                 {/* <span>{cartCtx.items[0].currency}{totalAmount}</span> */}
                 <span>{cartCtx.currency} {totalAmount}</span>
             </div>
-            {isCheckout && <Checkout/>}
+            {isCheckout && <Checkout onCancel={props.onClose }/>}
             <div className={classes.actions}>
                 <button
                     className={classes['button--alt']}
