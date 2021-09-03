@@ -26,7 +26,30 @@ const Cart = (props) => {
 
     const orderHandler = () => {
         setIsCheckout(true);
-     };
+    };
+    const modalActions = (
+        <div className={classes.actions}>
+          <button className={classes['button--alt']} onClick={props.onClose}>
+            Close
+          </button>
+          {hasItems && (
+            <button className={classes.button} onClick={orderHandler}>
+              Order
+            </button>
+          )}
+        </div>
+      );
+    
+    
+    const submitOrderHandler = (userData) => {
+        fetch('https://food-order-9211f-default-rtdb.firebaseio.com/meals.json', {
+            method: 'POST',
+            body: JSON.stringify({
+                user: userData,
+                orderedItems:cartCtx.items
+            })
+        });
+    };
 
     const cartItems = (
         <ul className={classes['cart-items']}>
@@ -44,25 +67,17 @@ const Cart = (props) => {
         </ul>
     )
     return (
-        <Modal onClose={props.onClose}> 
-            {cartItems}
-            <div className={classes.total}>
-                <span>Total Amount </span>
-                    {/* <span>{totalAmount}</span> */}
-                {/* <span>{cartCtx.items[0].currency}{totalAmount}</span> */}
-                <span>{cartCtx.currency} {totalAmount}</span>
-            </div>
-            {isCheckout && <Checkout onCancel={props.onClose }/>}
-            <div className={classes.actions}>
-                <button
-                    className={classes['button--alt']}
-                    onClick={props.onClose}
-                >Close</button>
-               {hasItems && <button className={classes.button} onClick={orderHandler}>Order</button>}
-            </div>
-        
+        <Modal onClose={props.onClose}>
+          {cartItems}
+          <div className={classes.total}>
+            <span>Total Amount</span>
+            <span>{totalAmount}</span>
+          </div>
+            {isCheckout && (
+                <Checkout onConfirm={submitOrderHandler} onCancel={props.onClose} />
+            )};
+          {!isCheckout && modalActions}
         </Modal>
-    )
-    
-}
+      );
+    };
 export default Cart;
