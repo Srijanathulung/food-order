@@ -8,7 +8,7 @@ const MealItems = (props) => {
 
     const cartCtx = useContext(CartContext);
 
-    const price = `${props.currency} ${props.price.toFixed(2)}`
+    const price = `${props.currency} ${props.price}`
     
     const addToCartHandler = amount => {
         cartCtx.addItem({
